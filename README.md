@@ -1,0 +1,2 @@
+# swaybar-protocol
+
