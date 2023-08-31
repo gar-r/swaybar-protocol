@@ -10,15 +10,11 @@ func Init(w io.Writer, h *Header) error {
 	if err != nil {
 		return err
 	}
-	err = writeStr(w, "\n")
-	if err != nil {
-		return err
-	}
 	return writeStr(w, "[")
 }
 
-func Output(w io.Writer, b *Body) error {
-	err := write(w, b)
+func Output(w io.Writer, arr []*Body) error {
+	err := write(w, arr)
 	if err != nil {
 		return err
 	}
