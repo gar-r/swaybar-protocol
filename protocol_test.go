@@ -61,3 +61,41 @@ func TestOutput(t *testing.T) {
 		t.Errorf("expected %s, got: %s", expected, actual)
 	}
 }
+
+func TestRead(t *testing.T) {
+	json := `{
+	"name": "clock",
+	"instance": "edt",
+	"x": 1900,
+	"y": 10,
+	"button": 1,
+	"event": 274,
+	"relative_x": 100,
+	"relative_y": 8,
+	"width": 120,
+	"height": 18
+  }`
+
+	r := strings.NewReader(json)
+
+	actual, err := Read(r)
+	expected := &ClickEvent{
+		Name:      "clock",
+		Instance:  "edt",
+		X:         1900,
+		Y:         10,
+		Button:    1,
+		Event:     274,
+		RelativeX: 100,
+		RelativeY: 8,
+		Width:     120,
+		Height:    18,
+	}
+
+	if err != nil {
+		t.Errorf("got error: %s, expected none", err)
+	}
+	if *expected != *actual {
+		t.Errorf("expected: %v, got: %v", expected, actual)
+	}
+}

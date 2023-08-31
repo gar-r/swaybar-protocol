@@ -21,6 +21,13 @@ func Output(w io.Writer, arr []*Body) error {
 	return writeStr(w, ",")
 }
 
+func Read(r io.Reader) (*ClickEvent, error) {
+	dec := json.NewDecoder(r)
+	event := &ClickEvent{}
+	err := dec.Decode(event)
+	return event, err
+}
+
 func write(w io.Writer, obj interface{}) error {
 	enc := json.NewEncoder(w)
 	return enc.Encode(obj)
