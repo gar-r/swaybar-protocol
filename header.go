@@ -4,7 +4,7 @@ package swaybarprotocol
 // json protocol. (see: man 7 swaybar-protocol)
 type Header struct {
 	Version     int  `json:"version"`
-	ClickEvents bool `json:"click_events"`
-	ContSignal  int  `json:"cont_signal"`
-	StopSignal  int  `json:"stop_signal"`
+	ClickEvents bool `json:"click_events,omitempty"`
+	ContSignal  int  `json:"cont_signal,omitempty"`
+	StopSignal  int  `json:"stop_signal,omitempty"`
 }
