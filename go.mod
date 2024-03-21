@@ -1,3 +1,3 @@
-module git.okki.hu/garric/swaybar-protocol
+module github.com/gar-r/swaybar-protocol
 
 go 1.21.0
